@@ -13,19 +13,24 @@ $(function(){
 
 		let wordCount = 0
 		let uniqueWordCount = 0
+		let wordLength = 0
 		let countedWords = []
 
 		normalizedArr.forEach(word => {
-			console.log(word);
+			if(!countedWords.includes(word)){
+				uniqueWordCount++;
+			}
+			countedWords.push(word);
 			wordCount++ ;
-			console.log(wordCount);
-		})
-		var counts = {};
-		for (var i = 0; i < normalizedArr.length; i++) {
-		    counts[normalizedArr[i]] = 1 + (counts[normalizedArr[i]] || 0);
-		}
-		console.log(counts);
-		// console.log(wordCount);
-		// console.log(uniqueWordCount);
+			wordLength += word.length
+		});
+		console.log('Word count: ' + wordCount);
+		console.log('Unique word count: ' + uniqueWordCount);
+		console.log('Total length of the words: ' + wordLength);
+		console.log('Average word length is: ' + (wordLength / wordCount));
+		$('dl').removeClass('hidden');
+		$('.wordCount').text(wordCount);
+		$('.unique').text(uniqueWordCount);
+		$('.average').text((wordLength / wordCount));
 	})
 });
