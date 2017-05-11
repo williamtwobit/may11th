@@ -5,7 +5,7 @@
 //     let img = $(this).attr('src');
 //     $('.hero img').attr('src', img)
 //   })
-  
+
 // })
 
 // DRILL 2
@@ -47,10 +47,18 @@
 // 					$('.js-results').append(`<div class="fizz-buzz-item fizzbuzz"> <span>${item}</span> </div>`);
 // 				}
 // 				else{
-// 					$('.js-results').append(`<div class="fizz-buzz-item"> <span>${item}</span> </div>`);	
+// 					$('.js-results').append(`<div class="fizz-buzz-item"> <span>${item}</span> </div>`);
 // 				}
 // 			})
 // 		})
 
 // 	});
 
+$(function(){
+  $('.js-lightbulb').click(function(event){
+    console.log(this);
+    $('.js-lightbulb').removeClass('bulb-on');
+    $(this).toggleClass('bulb-on');
+    console.log("this");
+  })
+})
