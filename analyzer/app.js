@@ -8,19 +8,24 @@ $(function(){
 		// console.log(normalized);
 		let arr = normalized.split(" ");
 		// console.log(arr);
-		let normalizedArr = arr.filter(word => word.length > 0);
-		// console.log(normalizedArr);
+		let normalizedArr = arr.filter(Boolean);
+
+		console.log(normalizedArr);
 
 		let wordCount = 0
 		let uniqueWordCount = 0
 		let wordLength = 0
-		let countedWords = []
+		let countedWords = {}
 
 		normalizedArr.forEach(word => {
-			if(!countedWords.includes(word)){
+			if(!countedWords[word]){
 				uniqueWordCount++;
+				countedWords[word] = 1
 			}
-			countedWords.push(word);
+			else {
+				countedWords[word] ++
+			}
+			console.log(countedWords);
 			wordCount++ ;
 			wordLength += word.length
 		});
